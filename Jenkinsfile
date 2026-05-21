@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy to Kubeadm Cluster') {
             steps {
 
-                sshagent(['ec2-ssh-key']) {
+                sshagent(['master-node-ssh']) {
 
                     sh """
                     ssh -o StrictHostKeyChecking=no ${K8S_USER}@${K8S_MASTER} '
