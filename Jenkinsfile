@@ -51,7 +51,7 @@ pipeline {
                 kubectl set image deployment/nodejs-deployment \
                 nodeapp-container=${IMAGE}:${TAG} || true
 
-                kubectl rollout status deployment/nodeapp-deployment
+                kubectl rollout status deployment/nodejs-deployment
                 '''
             }
         }
