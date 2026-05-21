@@ -45,28 +45,20 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubeadm Cluster') {
-            steps {
+stage('Deploy to Kubernetes') {
+    steps {
+        sh '''
+        ls -ltr
 
-                sshagent(['master-node-ssh']) {
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
 
-                    sh """
-                    ssh -o StrictHostKeyChecking=no ${K8S_USER}@${K8S_MASTER} '
-                    
-                    export KUBECONFIG=${KUBECONFIG}
+        kubectl set image deployment/nodeapp-deployment \
+        nodeapp-container=swatikadam16/sample-nodejs-app:${TAG} || true
 
-                    kubectl set image deployment/nodeapp-deployment \
-                    nodeapp-container=${IMAGE}:${TAG} || true
-
-                    kubectl apply -f deployment.yaml
-                    kubectl apply -f service.yaml
-
-                    kubectl rollout status deployment/nodeapp-deployment
-
-                    '
-                    """
-                }
-            }
-        }
+        kubectl rollout status deployment/nodeapp-deployment
+        '''
+    }
+}
     }
 }
