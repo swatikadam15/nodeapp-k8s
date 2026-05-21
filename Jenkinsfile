@@ -48,6 +48,8 @@ pipeline {
 stage('Deploy to Kubernetes') {
     steps {
         sh '''
+                export KUBECONFIG=$HOME/.kube/config
+
         ls -ltr
 
         kubectl apply -f deployment.yaml
