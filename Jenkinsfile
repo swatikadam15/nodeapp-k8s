@@ -7,7 +7,7 @@ pipeline {
         IMAGE = "swatikadam16/sample-nodejs-app"
         TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
 
-        KUBECONFIG = "/home/ubuntu/.kube/config"
+        // KUBECONFIG = "/home/ubuntu/.kube/config"
     }
 
     stages {
