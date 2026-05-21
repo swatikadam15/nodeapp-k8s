@@ -4,8 +4,12 @@ pipeline {
     environment {
         IMAGE = "swatikadam16/sample-nodejs-app"
         TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-        EC2 = "43.205.195.222"
-        USER = "ubuntu"
+
+        // Kubernetes master IP (kubeadm cluster)
+        K8S_MASTER = "3.109.183.70"
+        K8S_USER = "ubuntu"
+
+        KUBECONFIG = "/home/ubuntu/.kube/config"
     }
 
     stages {
@@ -41,26 +45,26 @@ pipeline {
             }
         }
 
-        stage('Deploy to EC2') {
+        stage('Deploy to Kubeadm Cluster') {
             steps {
 
                 sshagent(['ec2-ssh-key']) {
 
-                    sh '''
-                    ssh -o StrictHostKeyChecking=no ${USER}@${EC2} "
+                    sh """
+                    ssh -o StrictHostKeyChecking=no ${K8S_USER}@${K8S_MASTER} '
+                    
+                    export KUBECONFIG=${KUBECONFIG}
 
-                    docker pull ${IMAGE}:${TAG}
+                    kubectl set image deployment/nodeapp-deployment \
+                    nodeapp-container=${IMAGE}:${TAG} || true
 
-                    docker stop nodeapp || true
-                    docker rm nodeapp || true
+                    kubectl apply -f /home/ubuntu/sample-node-k8s/deployment.yaml
+                    kubectl apply -f /home/ubuntu/sample-node-k8s/service.yaml
 
-                    docker run -d \
-                    -p 3000:3000 \
-                    --name nodeapp \
-                    ${IMAGE}:${TAG}
+                    kubectl rollout status deployment/nodeapp-deployment
 
-                    "
-                    '''
+                    '
+                    """
                 }
             }
         }
