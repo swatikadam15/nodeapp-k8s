@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    triggers {
+        githubPush()
+    }
     environment {
         IMAGE = "swatikadam16/sample-nodejs-app"
         TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
