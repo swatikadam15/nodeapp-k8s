@@ -9,7 +9,7 @@ pipeline {
         K8S_MASTER = "3.109.183.70"
         K8S_USER = "ubuntu"
 
-        KUBECONFIG = "/home/ubuntu/.kube/config"
+        KUBECONFIG = $HOME/.kube/config
     }
 
     stages {
