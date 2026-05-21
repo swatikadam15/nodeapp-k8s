@@ -58,8 +58,8 @@ pipeline {
                     kubectl set image deployment/nodeapp-deployment \
                     nodeapp-container=${IMAGE}:${TAG} || true
 
-                    kubectl apply -f /home/ubuntu/sample-node-k8s/deployment.yaml
-                    kubectl apply -f /home/ubuntu/sample-node-k8s/service.yaml
+                    kubectl apply -f deployment.yaml
+                    kubectl apply -f service.yaml
 
                     kubectl rollout status deployment/nodeapp-deployment
 
