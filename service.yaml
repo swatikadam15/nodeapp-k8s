@@ -1,28 +1,4 @@
-# ------------------------------------------------------------------
-# nodePort example
 
-# apiVersion: v1
-# kind: Service
-
-# metadata:
-#   name: nodejs-service
-
-# spec:
-#   type: NodePort
-
-#   selector:
-#     app: nodejs-app
-
-#   ports:
-#     - protocol: TCP
-#       port: 3000
-#       targetPort: 3000
-#       nodePort: 30080
-
-# -----------------------------------------------------------------------
-# LoadBalancer
-
-# nodePort example
 
 apiVersion: v1
 kind: Service
@@ -31,7 +7,7 @@ metadata:
   name: nodejs-service
 
 spec:
-  type: LoadBalancer
+  type: NodePort
 
   selector:
     app: nodejs-app
@@ -41,4 +17,5 @@ spec:
       port: 3000
       targetPort: 3000
       nodePort: 30080
-# hello
+
+
