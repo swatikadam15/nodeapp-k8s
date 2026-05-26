@@ -1,4 +1,4 @@
-# Node.js CI/CD Pipeline Deployment using Jenkins, Docker & Kubernetes
+<img width="1727" height="965" alt="image" src="https://github.com/user-attachments/assets/59899523-f3f9-4536-8ce6-6f932dd75e0d" /><img width="1801" height="1003" alt="image" src="https://github.com/user-attachments/assets/fc7f0714-5632-4b74-b69b-6f9884b9047f" /># Node.js CI/CD Pipeline Deployment using Jenkins, Docker & Kubernetes
 
 ## 📌 Project Overview
 
@@ -140,14 +140,14 @@ Create:
 ● Deployment
 ● Service
 
-<img width="940" height="535" alt="image" src="https://github.com/user-attachments/assets/f1072788-1790-4367-a87a-a4603739c7bd" />
+<img width="1801" height="1003" alt="image" src="https://github.com/user-attachments/assets/d1e7ef55-86f3-4620-9254-d27c406a7daa" />
+
 
 - Docker Hub Image
+<img width="1727" height="965" alt="image" src="https://github.com/user-attachments/assets/a90674b2-c17d-4472-9d66-58355d7f25d1" />
 
-  <img width="1760" height="970" alt="image" src="https://github.com/user-attachments/assets/249fc8d0-392e-4e6b-a7a8-0a55f0d68cce" />
 
 - Kubernetes Pods
- <img width="1022" height="246" alt="image" src="https://github.com/user-attachments/assets/ea931c12-9a55-470d-9c40-c91956a21dbd" />
 
 - Running Application
    http://3.6.39.238:30080/
