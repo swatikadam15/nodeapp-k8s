@@ -1,4 +1,4 @@
-<img width="1727" height="965" alt="image" src="https://github.com/user-attachments/assets/59899523-f3f9-4536-8ce6-6f932dd75e0d" /><img width="1801" height="1003" alt="image" src="https://github.com/user-attachments/assets/fc7f0714-5632-4b74-b69b-6f9884b9047f" /># Node.js CI/CD Pipeline Deployment using Jenkins, Docker & Kubernetes
+
 
 ## 📌 Project Overview
 
